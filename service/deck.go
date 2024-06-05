@@ -147,10 +147,10 @@ func SortHand(hands []model.Card) []model.Card {
 		}
 	}
 	sort.Slice(singleCard, func(i, j int) bool {
-		return singleCard[i].Value <= singleCard[j].Value
+		return singleCard[i].Value <= singleCard[j].Value && singleCard[i].Rank < singleCard[j].Rank
 	})
 	sort.Slice(pairs, func(i, j int) bool {
-		return pairs[i].Value <= pairs[j].Value
+		return pairs[i].Value <= pairs[j].Value && pairs[i].Rank < pairs[j].Rank
 	})
 	result = append(append(append(append([]model.Card{}, singleCard...), pairs...), straight...), strongValue...)
 
