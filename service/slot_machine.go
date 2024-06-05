@@ -112,15 +112,8 @@ func (s *SlotMachineType) Display(status string) {
 		fmt.Print("\n                 ")
 		fmt.Printf("%s | %s | %s ", s.Reels[i][0].icon, s.Reels[i][1].icon, s.Reels[i][2].icon)
 		fmt.Print("\n                 ")
-		// for j := range s.Reels[i] {
-		// 	fmt.Print(strings.TrimSpace(s.Reels[i][j].icon), " | ")
-		// }
 	}
 	fmt.Print("\n")
-
-	if s.Credits > 1000 {
-		fmt.Println("| Higher stakes 🧈🧈🧈 |")
-	}
 	fmt.Printf("\nCredits: %d \n\n", s.Credits)
 	fmt.Printf("Reward: %d \n\n", reward)
 	fmt.Println(status)
@@ -163,10 +156,6 @@ func checkLine(a, b, c SymbolType) bool {
 }
 
 func generateRandomSymbol(min, max int) SymbolType {
-	//? 	THIS IS BASED ON TIME - GO TOO FAST IT GIVES SAME NUMBER ID
-	// source := rand.NewSource(time.Now().UnixNano())
-	// rng := rand.New(source)
-
 	return Symbols[rand.Intn(max-min)+1]
 }
 
